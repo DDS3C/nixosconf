@@ -1,0 +1,41 @@
+{ pkgs, ... }:
+
+{
+  environment.systemPackages = with pkgs; [
+    firefox
+    git
+    kitty
+    niri
+    noctalia
+    btop
+    fastfetch
+    xwayland-satellite
+    fish
+    starship
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.space-mono
+    nodejs
+    pnpm
+    flatpak
+    prismlauncher
+    adwaita-qt
+    adwaita-qt6
+    ethtool
+    gparted
+    pinta
+    polkit_gnome
+    mediawriter
+    brave-origin
+    fastfetch
+    xwayland-satellite
+    fish
+    starship
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.space-mono
+    tidal-hifi
+    vesktop
+    deadlock-mod-manager
+    sone
+    efibootmgr
+  ];
+}
