@@ -1,11 +1,21 @@
 { pkgs, ... }:
 
+let
+  creamlinux = import (pkgs.fetchFromGitHub {
+    owner = "Novattz";
+    repo = "creamlinux-installer";
+    rev = "main";
+    hash = "sha256-sV23mp0XnJHf4oSqqvFLFfvSkssHzxafqYMNw3HGEdg=";
+  }) { inherit pkgs; };
+in
 {
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     extraPackages = with pkgs; [ ];
+    localNetworkGameTransfers.openFirewall = true;
+    protontricks.enable = true;
   };
 
   programs.niri.enable = true;
@@ -25,14 +35,12 @@
     systemd.enable = true;
   };
 
-  # 1. Reguły Firewalla dla AudioRelay
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 59100 59200 ];
     allowedUDPPorts = [ 59100 59200 59716 ];
   };
 
-  # 2. Konfiguracja wirtualnego mikrofonu w PipeWire
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -59,5 +67,7 @@
       ];
     };
   };
-}
 
+  # CreamLinux
+  environment.systemPackages = [ creamlinux ];
+}

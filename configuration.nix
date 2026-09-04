@@ -80,7 +80,6 @@
     isNormalUser = true;
     description = "shvpk";
     extraGroups = [ "networkmanager" "wheel" ];
-initialPassword="2137";
   };
 
   # Allow unfree packages.

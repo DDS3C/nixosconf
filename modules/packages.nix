@@ -37,5 +37,7 @@
     deadlock-mod-manager
     sone
     efibootmgr
+    comma
+    capitaine-cursors
   ];
 }
